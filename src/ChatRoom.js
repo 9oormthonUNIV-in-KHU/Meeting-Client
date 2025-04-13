@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Client } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
-import './ChatRoom.css'; // CSS 파일을 import 합니다
+import './ChatRoom.css';  // CSS 파일 import
 
 const ChatRoom = ({ roomId }) => {
     const [messages, setMessages] = useState([]);
@@ -45,10 +45,9 @@ const ChatRoom = ({ roomId }) => {
     };
 
     const fetchMessages = () => {
-        axios
-            .get(`http://localhost:8080/chat/${roomId}`)
+        axios.get(`http://localhost:8080/chat/${roomId}`)
             .then(response => setMessages(response.data.message))
-            .catch(error => console.error("메시지 로딩 에러: ", error));
+            .catch(error => console.error("메시지 로딩 에러:", error));
     };
 
     const sendMessage = () => {
@@ -73,19 +72,22 @@ const ChatRoom = ({ roomId }) => {
     }, [roomId]);
 
     return (
-        <div className="chat-room">
-            <h2 className="chat-room-title">채팅방: {roomId}</h2>
-            <div className="chat-messages">
+        <div className="chat-container">
+            <div className="chat-header">
+                채팅방: {roomId}
+            </div>
+            <div className="chat-body">
                 {messages.map((msg, index) => (
                     <div
                         key={index}
                         className={`chat-message ${msg.name === inputNameValue ? 'own-message' : ''}`}
                     >
-                        <span className="chat-message-sender">{msg.name}</span>: <span className="chat-message-text">{msg.message}</span>
+                        <span className="chat-message-sender">{msg.name}</span>:
+                        <span className="chat-message-text"> {msg.message}</span>
                     </div>
                 ))}
             </div>
-            <div className="chat-input-area">
+            <div className="chat-footer">
                 <input
                     className="chat-input"
                     type="text"

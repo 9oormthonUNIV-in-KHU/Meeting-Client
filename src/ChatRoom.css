@@ -1,47 +1,52 @@
 /* src/ChatRoom.css */
 
-.chat-room {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.chat-container {
+    max-width: 700px;
+    margin: 30px auto;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-.chat-room-title {
+.chat-header {
+    background: linear-gradient(135deg, #66bb6a, #43a047); /* 초록색 그라데이션 */
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 1.5em;
     text-align: center;
-    margin-bottom: 15px;
-    color: #333;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.chat-messages {
+.chat-body {
+    padding: 15px;
     height: 300px;
     overflow-y: auto;
-    border: 1px solid #ccc;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 4px;
-    margin-bottom: 15px;
+    background-color: #f1f8f2;  /* 매우 연한 초록색 배경 */
 }
 
 .chat-message {
-    margin-bottom: 10px;
     padding: 8px 12px;
+    margin-bottom: 10px;
     border-radius: 15px;
-    background-color: #e1f5fe;
-    color: #0277bd;
+    background-color: #e8f5e9;  /* 연한 초록색 */
+    color: #388e3c;           /* 진한 초록색 텍스트 */
     max-width: 70%;
     word-wrap: break-word;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 10px;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.chat-message:hover {
+    transform: scale(1.02);
 }
 
 .chat-message.own-message {
-    background-color: #c8e6c9;
+    background-color: #c8e6c9;  /* 이미 초록색 느낌 적용됨 */
     color: #2e7d32;
     margin-left: auto;
+    margin-right: 10px;
 }
 
 .chat-message-sender {
@@ -49,30 +54,43 @@
     margin-right: 5px;
 }
 
-.chat-input-area {
+.chat-message-text {
+    display: inline;
+}
+
+.chat-footer {
     display: flex;
-    gap: 10px;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    background: #fafafa;
 }
 
 .chat-input {
     flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.chat-input:focus {
+    border-color: #66bb6a;  /* 초록색 포커스 효과 */
 }
 
 .chat-send-button {
-    padding: 8px 16px;
+    padding: 10px 20px;
     border: none;
-    background-color: #42a5f5;
+    background: linear-gradient(135deg, #66bb6a, #43a047);
     color: #fff;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1em;
+    transition: background 0.3s, transform 0.2s;
 }
 
 .chat-send-button:hover {
-    background-color: #1e88e5;
+    background: linear-gradient(135deg, #43a047, #2e7d32);
+    transform: scale(1.05);
 }

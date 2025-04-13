@@ -8,7 +8,6 @@ function App() {
 
     return (
         <div>
-            <h1>채팅 예제</h1>
             <ChatRoom roomId={roomId} />
         </div>
     );
