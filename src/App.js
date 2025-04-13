@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import ChatRoom from './ChatRoom';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // 원하는 채팅방 ID를 지정 (예: "1234")
+    const roomId = '1234';
+
+    return (
+        <div>
+            <h1>채팅 예제</h1>
+            <ChatRoom roomId={roomId} />
+        </div>
+    );
 }
 
 export default App;
